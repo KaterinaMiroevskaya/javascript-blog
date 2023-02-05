@@ -1,13 +1,13 @@
-@import url("https://fonts.googleapis.com/css?family=Oswald:400,600|Sacramento|Source+Sans+Pro:300&subset=latin-ext");
+@import url('https://fonts.googleapis.com/css?family=Oswald:400,600|Sacramento|Source+Sans+Pro:300&subset=latin-ext');
 
 /* Variables */
 
 $color-light: #fff;
 $color-dark: #444;
 
-$font-logo: "Sacramento", cursive;
-$font-header: "Oswald", sans-serif;
-$font-text: "Source Sans Pro", sans-serif;
+$font-logo: 'Sacramento', cursive;
+$font-header: 'Oswald', sans-serif;
+$font-text: 'Source Sans Pro', sans-serif;
 
 /* Global */
 
@@ -120,4 +120,19 @@ body {
   p {
     margin: 0 10px 0 0;
   }
+}
+.tag-size-1 {
+  color: rgb(1, 165, 6);
+  font-size: 160%;
+  text-decoration: none;
+}
+.tag-size-3 {
+  color: rgb(20, 0, 245);
+  font-size: 200%;
+  text-decoration: none;
+}
+.tag-size-5 {
+  color: rgb(231, 27, 220);
+  font-size: 240%;
+  text-decoration: none;
 }

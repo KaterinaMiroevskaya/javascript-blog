@@ -137,11 +137,13 @@ function generateTags() {
     /* split tags into array */
     const articleTagsArray = articleTags.split(' ');
     /* START LOOP: for each tag */
+
     for (let tag of articleTagsArray) {
       /* generate HTML of the link */
 
-      const tagHTMLData = { id: 'tag-' + tag, title: tag };
-      const tagLinkHTML = templates.articleLink(tagHTMLData);
+      const tagHTMLData = { id: tag, title: tag };
+      const tagLinkHTML = templates.tagLink(tagHTMLData);
+      console.log(tagHTMLData);
 
       // const tagLinkHTML =
       //   '<li><a href="#tag-' + tag + '">' + tag + '</a></li> ';
@@ -149,15 +151,23 @@ function generateTags() {
       html = html + tagLinkHTML;
       /* insert link into titleList */
       /* [NEW] check if this link is NOT already in allTags */
+      // eslint-disable-next-line no-prototype-builtins
       if (!allTags.hasOwnProperty(tag)) {
         /* [NEW] add tag to allTags object */
         allTags[tag] = 1;
       } else {
         allTags[tag]++;
       }
+
+      // tagsInArticleData.push({
+      //   title: tag,
+      //   id: tag,
+      // });
+
       /* END LOOP: for each tag */
     }
     /* insert HTML of all the links into the tags wrapper */
+    // tagWrapper.innerHTML = templates.tagLink(tagsInArticleData);
     tagWrapper.innerHTML = html;
 
     /* END LOOP: for every article: */
@@ -181,7 +191,7 @@ function generateTags() {
     allTagsData.tags.push({
       tag: tag,
       count: allTags[tag],
-      id: 'tag-' + tag,
+      id: tag,
       className:
         optCloudClassPrefix + calculateTagClass(allTags[tag], tagsParams),
     });
@@ -253,10 +263,10 @@ function generateAuthors() {
     const articleAuthor = article.getAttribute('data-author');
 
     const authorHTMLData = {
-      id: 'author-' + articleAuthor,
+      id: articleAuthor,
       title: articleAuthor,
     };
-    const authorLinkHTML = templates.articleLink(authorHTMLData);
+    const authorLinkHTML = templates.authorLink(authorHTMLData);
 
     // const authorLinkHTML =
     //   '<li><a href="#author-' +
@@ -265,6 +275,7 @@ function generateAuthors() {
     //   articleAuthor +
     //   '</a></li> ';
 
+    // eslint-disable-next-line no-prototype-builtins
     if (!allAuthors.hasOwnProperty(articleAuthor)) {
       allAuthors[articleAuthor] = 1;
     } else {

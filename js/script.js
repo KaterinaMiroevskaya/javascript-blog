@@ -308,7 +308,7 @@ function generateAuthors() {
     allAuthorsData.authors.push({
       author: author,
       count: allAuthors[author],
-      id: 'author-' + author,
+      id: author,
       className:
         optCloudClassPrefix +
         calculateTagClass(allAuthors[author], authorParams),
